@@ -30,7 +30,7 @@ public class StringHelper {
     }
 
     public static String getPhoneNumber() {
-        int [] startNumeric = {4, 8, 9};
+        int[] startNumeric = {4, 8, 9};
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(startNumeric[RANDOM.nextInt(2)]);
         for (int i = 0; i < 9; i++) {
@@ -38,11 +38,15 @@ public class StringHelper {
         }
         return stringBuilder.toString();
     }
-    public static String getMail(){
+
+    public static String getMail() {
         String template = "%s@%s.%s";
-        String [] domains = {"ru", "com"};
+        String[] domains = {"ru", "com"};
 
         return String
-                .format(template, getRandomEnglishString(RANDOM.nextInt(10)), getRandomEnglishString(RANDOM.nextInt(6)), domains[RANDOM.nextInt(1)] );
+                .format(template,
+                        getRandomEnglishString(RANDOM.nextInt(10) + 1),
+                        getRandomEnglishString(RANDOM.nextInt(6) + 1),
+                        domains[RANDOM.nextInt(1)]);
     }
 }
